@@ -1,0 +1,42 @@
+
+.app-navbar{
+    display: flex;
+    background-color: $primary-color-dark;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 50px;
+    max-height: 100px;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    a{
+        font-size: $logo-font;
+        color: $primary-color-text;
+    }
+    .fas{
+        font-size: 2rem;
+        cursor: pointer;
+        color:  $primary-color-text;
+    }
+    /* ESTADOS */
+    &.no-search{
+        .filter-container,
+        .fa-times-circle{
+            display: none;
+        }
+        a{
+            font-size: $logo-font + .5rem;
+        }
+    }
+    &.search{
+        .filter-container,
+        .fa-times-circle{
+            display: block;
+        }
+        .fa-beer{
+            display: none; 
+        }
+    }
+}

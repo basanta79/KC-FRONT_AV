@@ -1,5 +1,6 @@
 const path = require('path');
-const htmlPlugin = require('html-webpack-plugin')
+const webpack = require('webpack');
+const htmlPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'source-map',
@@ -12,7 +13,46 @@ module.exports = {
     plugins: [
         new htmlPlugin({
             template: path.join(__dirname, 'src', 'index.html'),
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin(),
     ],
-
+    module: {
+        rules: [
+          {
+            test: /\.(scss|css)$/,
+            use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true,
+                },
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true,
+                },
+              },
+            ],
+          },
+          {
+            test: /\.js$/,
+            use: 'babel-loader',
+            exclude: /node_modules/,
+          },    
+        ],
+      },    
+    devServer: {
+        open: true,
+        overlay: true,
+        port: 3000,
+        hot: true,
+        inline: true,
+        contentBase: [
+          path.join(__dirname, 'src'),
+          path.join(__dirname, 'src', 'templates'),
+        ],
+        watchContentBase: true,
+    },
 }

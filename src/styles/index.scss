@@ -1,0 +1,23 @@
+@import "variables";
+@import "reset";
+@import "navbar";
+
+*{
+  font-family: 'Indie Flower', 'Lato';
+}
+
+a {
+  text-decoration: none;
+}
+  
+main{
+    min-height: 100vh;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 10% 1fr 10%;
+    grid-template-rows: minmax(max-content, 50px) 1fr;
+    grid-template-areas: 
+      ". filter ."
+      ". main .";
+}
+  
