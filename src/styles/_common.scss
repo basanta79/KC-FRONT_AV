@@ -1,0 +1,41 @@
+.card{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    background-color: $primary-color-light;
+    border: none;
+    border-radius: 5px;
+
+    .card-header{
+        padding: 1em;
+        h2{
+            font-size: $header-h2;
+            color: $primary-text-color;
+        }
+    }
+
+    .card-content,
+    .card-content-image img{
+        width:100%;
+    }
+    .card-content-image{
+        width: 100%;
+        max-width: 85px;
+        min-width: 85px;
+        padding: 0.5em;
+    }
+    .card-content{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        box-sizing: border-box;
+        align-items: center;
+        padding: 0 1em 1em 1em;
+    }
+    .card-content-text{
+        padding: 0.5em;
+    }
+    .rating-container{
+        padding: 0.5em;
+    }
+}

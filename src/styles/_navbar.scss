@@ -2,7 +2,7 @@
 .app-navbar{
     display: flex;
     background-color: $primary-color-dark;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     min-height: 50px;
     max-height: 100px;
@@ -11,6 +11,7 @@
     left: 0;
     right: 0;
     position: fixed;
+    
     a{
         font-size: $logo-font;
         color: $primary-color-text;
@@ -28,6 +29,11 @@
         }
         a{
             font-size: $logo-font + .5rem;
+        }
+        .navbar-logo{
+            width: 500px;
+            transition: width 1s;
+            text-align: center;
         }
     }
     &.search{
