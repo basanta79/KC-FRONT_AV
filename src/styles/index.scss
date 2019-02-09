@@ -17,9 +17,9 @@ main{
     margin-top: 50px;
     display: grid;
     grid-template-columns: 10% 1fr 10%;
-    grid-template-rows: minmax(max-content, 50px) 1fr;
+    grid-template-rows: minmax(max-content, 100px) 1fr;
     grid-template-areas: 
-      ". filter ."
+      ". header ."
       ". main .";
 }
   

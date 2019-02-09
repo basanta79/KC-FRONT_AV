@@ -10,7 +10,7 @@ module.exports = {
         filename: 'bundle.js',
         path: path.join(__dirname, 'dist'),
     },
-    plugins: [
+    plugins: [ 
         new htmlPlugin({
             template: path.join(__dirname, 'src', 'index.html'),
         }),
@@ -40,6 +40,15 @@ module.exports = {
             test: /\.js$/,
             use: 'babel-loader',
             exclude: /node_modules/,
+          },
+          {
+            test: /\.(jpg|png|gif)$/,
+            use: [
+              {
+                loader: 'file-loader',
+                options: {},
+              }
+            ]
           },    
         ],
       },    
