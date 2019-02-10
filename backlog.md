@@ -1,7 +1,7 @@
 [ ] - mobile first
 [X] - Listar las cervezas. limitar resultados a 10
-[ ] - Filtrar por texto en header
-    [ ] - Vista de no hay cervezas para mostrar
+[X] - Filtrar por texto en header
+    [X] - Vista de no hay cervezas para mostrar (con el texto de info es suficiente)
 [X] - Header con imágen de fondo que sea responsive
 [ ] - Filtrar por fecha
 [ ] - Vista de detalle con mas información que en listado

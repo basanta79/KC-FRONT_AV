@@ -1,6 +1,8 @@
 import apiBeers from './api';
+import appConfing from './config.js';
 
 const {getBeers} = apiBeers();
+const config = appConfing();
 
 const infoTemplate = (num, limit) => `
 <p>Se han encontrado ${num} cervezas, se muestran las ${limit>num? num : limit} primeras.</p>
@@ -55,6 +57,6 @@ export const renderBeerList = async (limit, query) => {
 };
 
 
-renderBeerList(10);
+renderBeerList(config.limit);
 
-console.log('beers.js')
+console.log('beers')

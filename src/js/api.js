@@ -1,3 +1,6 @@
+import appConfig from './config';
+
+const config = appConfig();
 
 const apiBeers = (apiURL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.now.sh/api/v1/') => {
     const beersList = `${apiURL}beers`;
@@ -11,7 +14,7 @@ const apiBeers = (apiURL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.no
                 const response = await fetch(requestURL , {
                     method: 'GET',
                     headers: {
-                        'X-API-KEY': '9SFHASA-GJV4ZAB-KX8AEAT-QQ8W6M3',
+                        'X-API-KEY': config.apiKey,
                     },
                 });
                 const data = await response.json();
