@@ -3,7 +3,6 @@ import apiBeers from './api';
 const {getBeers} = apiBeers();
 
 
-
 const beerListTemplate = ({beerId, name, image, description, likes}) => `
 <div id="${beerId}" class="card principal">
       <header class="card-header">
@@ -26,17 +25,29 @@ const beerListTemplate = ({beerId, name, image, description, likes}) => `
 `;
 
 
-const getBeerList = async () => {
+const renderDOM = (element, htmlContent) => {
+    const htmlId = document.getElementById(element);
+    htmlId.innerHTML=htmlContent;
+}
+
+
+const createBeersHtml = (arrBeers, limit) => {
+    let renderList="";
+    arrBeers.slice(0,limit).forEach(item =>{
+        renderList += beerListTemplate(item);
+    })
+    return renderList;
+}
+
+
+const getBeerList = async (limit) => {
     const list = await getBeers();
-    const element = document.getElementById('show-section')
-    let renderList = "";
-    list.forEach(element => {
-        renderList += beerListTemplate(element);
-    });
-    element.innerHTML=renderList;
+    const renderList = createBeersHtml(list, limit);
+    renderDOM('show-section', renderList);
     console.log(renderList);
 };
 
-getBeerList();
+
+getBeerList(3);
 
 console.log('beers.js')
