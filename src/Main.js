@@ -1,6 +1,6 @@
 import './styles/index.scss';
-import './js/one';
-import './js/ui'
-import './js/beers'
+import './js/ui';
+import './js/beers';
+import './js/navbar';
 
 console.log('hello World!');

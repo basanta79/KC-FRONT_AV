@@ -2,6 +2,9 @@ import apiBeers from './api';
 
 const {getBeers} = apiBeers();
 
+const infoTemplate = (num, limit) => `
+<p>Se han encontrado ${num} cervezas, se muestran las ${limit>num? num : limit} primeras.</p>
+`;
 
 const beerListTemplate = ({beerId, name, image, description, likes}) => `
 <div id="${beerId}" class="card principal">
@@ -39,15 +42,19 @@ const createBeersHtml = (arrBeers, limit) => {
     return renderList;
 }
 
+const createInfoHtml = (arrBeers, limit) => {
+    return infoTemplate(arrBeers.length, limit);
+}
 
-const getBeerList = async (limit) => {
-    const list = await getBeers();
-    const renderList = createBeersHtml(list, limit);
-    renderDOM('show-section', renderList);
-    console.log(renderList);
+export const renderBeerList = async (limit, query) => {
+    const list = await getBeers(query);
+    const htmlBeerList = createBeersHtml(list, limit);
+    const htmlInfo = createInfoHtml(list, limit);
+    renderDOM('info-section', htmlInfo);
+    renderDOM('beer-section', htmlBeerList);
 };
 
 
-getBeerList(3);
+renderBeerList(10);
 
 console.log('beers.js')

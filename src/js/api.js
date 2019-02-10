@@ -4,9 +4,9 @@ const apiBeers = (apiURL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.no
     const beerFilter = `${apiURL}beers?`;
 
     return{
-        getBeers: async () => {
+        getBeers: async (query) => {
             try{
-                const requestURL = beersList;
+                const requestURL = query ? beerFilter+'search='+query : beersList;
 
                 const response = await fetch(requestURL , {
                     method: 'GET',
