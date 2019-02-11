@@ -1,10 +1,12 @@
 import './styles/index.scss';
-import './js/ui';
 import appConfing from './js/config.js';
-import {renderBeerList} from './js/beers';
+import './js/ui';
 import './js/navbar';
+import { renderBeerDetail } from './js/beerDetail';
+
 
 const config = appConfing();
-renderBeerList(config.limit);
 
-console.log('hello World!');
+renderBeerDetail();
+
+console.log('hello Detail!!');

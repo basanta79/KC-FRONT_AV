@@ -8,7 +8,7 @@ const infoTemplate = (num, limit) => `
 <p>Se han encontrado ${num} cervezas, se muestran las ${limit>num? num : limit} primeras.</p>
 `;
 
-const beerListTemplate = ({beerId, name, image, description, likes}) => `
+const beerListTemplate = ({beerId, name, image, description, likes, firstBrewed}) => `
 <div id="${beerId}" class="card principal">
       <header class="card-header">
         <h2>${name}</h2>
@@ -19,10 +19,12 @@ const beerListTemplate = ({beerId, name, image, description, likes}) => `
         </div>
         <div class="card-content-text">
           <p>${description}</p>
+          
           <div class="rating-container">
             <button class="icon">
               <i class="fas fa-star"></i> ${likes}
             </button>
+            <p> ${firstBrewed} </p>
           </div>
         </div>
       </div>
@@ -30,9 +32,18 @@ const beerListTemplate = ({beerId, name, image, description, likes}) => `
 `;
 
 
-const renderDOM = (element, htmlContent) => {
+export const renderDOM = (element, htmlContent) => {
     const htmlId = document.getElementById(element);
     htmlId.innerHTML=htmlContent;
+}
+
+const createDetailLink = (classLabel, url) => {
+  const headers = document.querySelectorAll(classLabel);
+  headers.forEach( item => {
+    console.log(item.getAttribute('id'));
+    const id=item.getAttribute('id');
+    item.addEventListener('click', () => window.location.href = `${url}${id}`);
+  })
 }
 
 
@@ -54,9 +65,7 @@ export const renderBeerList = async (limit, query) => {
     const htmlInfo = createInfoHtml(list, limit);
     renderDOM('info-section', htmlInfo);
     renderDOM('beer-section', htmlBeerList);
+    createDetailLink('.card',config.detailView);
 };
-
-
-renderBeerList(config.limit);
 
 console.log('beers')
