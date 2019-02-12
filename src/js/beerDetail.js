@@ -1,12 +1,12 @@
 import apiBeers from './api';
 import appConfing from './config.js';
-import { renderDOM } from './beers';
+import { renderDOM, createLikelLink  } from './beers';
 
-const { getDetail } = apiBeers();
+const { getDetail, addLike } = apiBeers();
 const config = appConfing();
 
 const beerTemplate = ({beerId, name, image, description, likes, firstBrewed, price, contributedBy, ingredients}) => `
-<div id="${beerId}" class="card principal">
+<div data-id="${beerId}" class="card principal">
       <header class="card-header">
         <h2>${name}</h2>
       </header>
@@ -17,7 +17,7 @@ const beerTemplate = ({beerId, name, image, description, likes, firstBrewed, pri
         <div class="card-content-text">
           <p>${description}</p>
           
-          <div class="rating-container">
+          <div class="rating-container" data-id="${beerId}">
             <button class="icon-like">
               <i class="fas fa-heart"></i> ${likes}
             </button>
@@ -33,6 +33,7 @@ export const renderBeerDetail = async()=> {
     const beer = await getDetail(_id);
     const beerHtml = beerTemplate(beer);
     renderDOM('beer-section', beerHtml);
+    createLikelLink('.icon-like', config.detailView)
 
 }
 

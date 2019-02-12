@@ -45,8 +45,9 @@ const createDetailLink = (classLabel, url) => {
   })
 }
 
-const createLikelLink = (classLabel, url) => {
+export const createLikelLink = (classLabel) => {
   const headers = document.querySelectorAll(classLabel);
+  console.log(headers);
   headers.forEach( item => {
     const id = item.parentNode.getAttribute('data-id');
     item.addEventListener('click', async () => {
@@ -54,7 +55,6 @@ const createLikelLink = (classLabel, url) => {
       await addLike(id);
       console.log('post-addlike');
       window.location.reload();
-      //window.location.href = `${url}${id}`
     });
   })
 }
