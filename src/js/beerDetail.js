@@ -18,8 +18,8 @@ const beerTemplate = ({beerId, name, image, description, likes, firstBrewed, pri
           <p>${description}</p>
           
           <div class="rating-container">
-            <button class="icon">
-              <i class="fas fa-star"></i> ${likes}
+            <button class="icon-like">
+              <i class="fas fa-heart"></i> ${likes}
             </button>
             <p> ${firstBrewed} </p>
           </div>

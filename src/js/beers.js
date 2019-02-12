@@ -9,7 +9,7 @@ const infoTemplate = (num, limit) => `
 `;
 
 const beerListTemplate = ({beerId, name, image, description, likes, firstBrewed}) => `
-<div id="${beerId}" class="card principal">
+<div data-id="${beerId}" class="card principal">
       <header class="card-header">
         <h2>${name}</h2>
       </header>
@@ -20,9 +20,9 @@ const beerListTemplate = ({beerId, name, image, description, likes, firstBrewed}
         <div class="card-content-text">
           <p>${description}</p>
           
-          <div class="rating-container">
-            <button class="icon">
-              <i class="fas fa-star"></i> ${likes}
+          <div class="rating-container" data-id="${beerId}">
+            <button class="icon-like">
+              <i class="fas fa-heart"></i> ${likes}
             </button>
             <p> ${firstBrewed} </p>
           </div>
@@ -40,8 +40,9 @@ export const renderDOM = (element, htmlContent) => {
 const createDetailLink = (classLabel, url) => {
   const headers = document.querySelectorAll(classLabel);
   headers.forEach( item => {
-    console.log(item.getAttribute('id'));
-    const id=item.getAttribute('id');
+    const id = item.parentNode.getAttribute('data-id');
+    console.log(id);
+    //const id=item.getAttribute('id');
     item.addEventListener('click', () => window.location.href = `${url}${id}`);
   })
 }
@@ -59,13 +60,16 @@ const createInfoHtml = (arrBeers, limit) => {
     return infoTemplate(arrBeers.length, limit);
 }
 
+
+
 export const renderBeerList = async (limit, query) => {
     const list = await getBeers(query);
     const htmlBeerList = createBeersHtml(list, limit);
     const htmlInfo = createInfoHtml(list, limit);
     renderDOM('info-section', htmlInfo);
     renderDOM('beer-section', htmlBeerList);
-    createDetailLink('.card',config.detailView);
+    createDetailLink('.card-header',config.detailView);
+    createDetailLink('.icon-like',config.detailView);
 };
 
 console.log('beers')
