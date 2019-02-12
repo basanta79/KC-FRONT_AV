@@ -9,6 +9,7 @@ const beerTemplate = ({beerId, name, image, description, likes, firstBrewed, pri
 <div data-id="${beerId}" class="card principal">
       <header class="card-header">
         <h2>${name}</h2>
+        <p class="card-price">${price} €</p>
       </header>
       <div class="card-content">
         <div class="card-content-image">
@@ -33,7 +34,7 @@ export const renderBeerDetail = async()=> {
     const beer = await getDetail(_id);
     const beerHtml = beerTemplate(beer);
     renderDOM('beer-section', beerHtml);
-    createLikelLink('.icon-like', config.detailView)
+    createLikelLink('.icon-like');
 
 }
 

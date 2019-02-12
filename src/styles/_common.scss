@@ -7,10 +7,19 @@
     border-radius: 5px;
 
     .card-header{
+        display: flex;
+        justify-content: space-between;
         padding: 1em;
         h2{
             font-size: $header-h2;
             color: $primary-text-color;
+        }
+        .card-price{
+            font-size: $icons;
+            background-color: $primary-color;
+            padding: .1em .5em .1em .5em;
+            border-bottom-right-radius: 20%;
+            border-top-left-radius: 20%;
         }
     }
 
