@@ -42,6 +42,23 @@ const apiBeers = (apiURL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.no
                 console.log(err);
                 throw `error: ${err}`;
             }
+        },
+        addLike: async(id=1) => {
+            try{
+                const requestURL = `${beersList}/${id}/like`
+
+                const response = await fetch(requestURL , {
+                    method: 'POST',
+                    headers: {
+                        'X-API-KEY': config.apiKey,
+                    },
+                });
+                const data = await response.json();
+                return data.beer;
+            } catch (err) {
+                console.log(err);
+                throw `error: ${err}`;
+            }
         }
 
     }

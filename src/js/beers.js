@@ -1,7 +1,7 @@
 import apiBeers from './api';
 import appConfing from './config.js';
 
-const {getBeers} = apiBeers();
+const {getBeers, addLike} = apiBeers();
 const config = appConfing();
 
 const infoTemplate = (num, limit) => `
@@ -41,9 +41,21 @@ const createDetailLink = (classLabel, url) => {
   const headers = document.querySelectorAll(classLabel);
   headers.forEach( item => {
     const id = item.parentNode.getAttribute('data-id');
-    console.log(id);
-    //const id=item.getAttribute('id');
     item.addEventListener('click', () => window.location.href = `${url}${id}`);
+  })
+}
+
+const createLikelLink = (classLabel, url) => {
+  const headers = document.querySelectorAll(classLabel);
+  headers.forEach( item => {
+    const id = item.parentNode.getAttribute('data-id');
+    item.addEventListener('click', async () => {
+      console.log('pre-addlike');
+      await addLike(id);
+      console.log('post-addlike');
+      window.location.reload();
+      //window.location.href = `${url}${id}`
+    });
   })
 }
 
@@ -69,7 +81,7 @@ export const renderBeerList = async (limit, query) => {
     renderDOM('info-section', htmlInfo);
     renderDOM('beer-section', htmlBeerList);
     createDetailLink('.card-header',config.detailView);
-    createDetailLink('.icon-like',config.detailView);
+    createLikelLink('.icon-like',config.detailView);
 };
 
 console.log('beers')
