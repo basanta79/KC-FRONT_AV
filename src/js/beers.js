@@ -47,7 +47,6 @@ const createDetailLink = (classLabel, url) => {
 
 export const createLikelLink = (classLabel) => {
   const headers = document.querySelectorAll(classLabel);
-  console.log(headers);
   headers.forEach( item => {
     const id = item.parentNode.getAttribute('data-id');
     item.addEventListener('click', async () => {
@@ -72,12 +71,32 @@ const createInfoHtml = (arrBeers, limit) => {
     return infoTemplate(arrBeers.length, limit);
 }
 
+function compareYear(year){
+  console.log(year);
+  return function (beer){
+    if (beer.firstBrewed.split('/')[1]==year){
+      return true;
+    }
+  }
+};
+
+const filterByYear = (beerList, year) => {
+    const beerListFiltered = beerList.filter( compareYear(year));
+    return beerListFiltered;
+
+}
+
+export const renderNewList = () => {
+  console.log(finaList);
+}
 
 
-export const renderBeerList = async (limit, query) => {
+export const renderBeerList = async (limit, query, year) => {
     const list = await getBeers(query);
-    const htmlBeerList = createBeersHtml(list, limit);
-    const htmlInfo = createInfoHtml(list, limit);
+    let finalList = [];
+    year ? finalList = filterByYear(list, year): finalList = list;
+    const htmlBeerList = createBeersHtml(finalList, limit);
+    const htmlInfo = createInfoHtml(finalList, limit);
     renderDOM('info-section', htmlInfo);
     renderDOM('beer-section', htmlBeerList);
     createDetailLink('.card-header',config.detailView);

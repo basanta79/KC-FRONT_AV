@@ -4,6 +4,7 @@
 @import "info";
 @import "beerlist";
 @import "common";
+@import "filter";
 
 *{
   font-family:  'Lato', 'verdana';
@@ -18,8 +19,9 @@ main{
     margin-top: 100px;
     display: grid;
     grid-template-columns: 10% 1fr 10%;
-    grid-template-rows: minmax(max-content, 50px) 1fr;
-    grid-template-areas: 
+    grid-template-rows: minmax(max-content, 50px) minmax(max-content, 50px) 1fr;
+    grid-template-areas:
+      ". filter ." 
       ". header ."
       ". main .";
 }
