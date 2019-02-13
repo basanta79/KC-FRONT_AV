@@ -48,15 +48,18 @@ const createDetailLink = (classLabel, url) => {
 export const createLikelLink = (classLabel) => {
   const headers = document.querySelectorAll(classLabel);
   const searchField = document.querySelector('#search-field');
+  let filterValue;
   const filterField = document.querySelector('#year');
+  console.log(filterField);
+  filterField ? filterValue = filterField.value : filterValue = "";
   headers.forEach( item => {
     const id = item.parentNode.getAttribute('data-id');
     item.addEventListener('click', async () => {
       console.log('pre-addlike');
       await addLike(id);
       console.log('post-addlike');
-      console.log(searchField.value, "  -  ", filterField.value);
-      renderBeerList(10, searchField.value, filterField.value);
+      console.log(searchField.value, "  -  ", filterValue);
+      renderBeerList(10, searchField.value, filterValue);
     });
   })
 }
@@ -106,6 +109,8 @@ export const renderNewList = (year, limit) => {
 
 export const renderBeerList = async (limit, query) => {
   const filterField = document.querySelector('#year');
+  let filterValue;
+  filterField ? filterValue = filterField.value : filterValue = "";
   const finalList = await getBeers(query);
   const htmlBeerList = createBeersHtml(finalList, limit);
   const htmlInfo = createInfoHtml(finalList, limit);
@@ -114,8 +119,8 @@ export const renderBeerList = async (limit, query) => {
   renderDOM('beer-section', htmlBeerList);
   createDetailLink('.card-header',config.detailView);
   createLikelLink('.icon-like',config.detailView);
-  console.log(filterField.value);
-  if(filterField.value){
+  //console.log(filterField.value);
+  if(filterValue!=""){
     renderNewList(filterField.value, limit);
   }
 };

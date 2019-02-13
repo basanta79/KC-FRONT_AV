@@ -29,12 +29,25 @@ const beerTemplate = ({beerId, name, image, description, likes, firstBrewed, pri
     </div>
 `;
 
+const createLikelLinkDetail = (classLabel) => {
+  const headers = document.querySelectorAll(classLabel);
+  headers.forEach( item => {
+    const id = item.parentNode.getAttribute('data-id');
+    item.addEventListener('click', async () => {
+      console.log('pre-addlike');
+      await addLike(id);
+      console.log('post-addlike');
+      renderBeerDetail();
+    });
+  })
+}
+
 export const renderBeerDetail = async()=> {
     const [,_id] = window.location.search ? window.location.search.split('=') : [3,1];
     const beer = await getDetail(_id);
     const beerHtml = beerTemplate(beer);
-    renderDOM('beer-section', beerHtml);
-    createLikelLink('.icon-like');
+    renderDOM('beer-detail', beerHtml);
+    createLikelLinkDetail('.icon-like');
 
 }
 
