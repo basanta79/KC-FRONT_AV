@@ -47,13 +47,16 @@ const createDetailLink = (classLabel, url) => {
 
 export const createLikelLink = (classLabel) => {
   const headers = document.querySelectorAll(classLabel);
+  const searchField = document.querySelector('#search-field');
+  const filterField = document.querySelector('#year');
   headers.forEach( item => {
     const id = item.parentNode.getAttribute('data-id');
     item.addEventListener('click', async () => {
       console.log('pre-addlike');
       await addLike(id);
       console.log('post-addlike');
-      window.location.reload();
+      console.log(searchField.value, "  -  ", filterField.value);
+      renderBeerList(10, searchField.value, filterField.value);
     });
   })
 }
@@ -89,7 +92,9 @@ const filterByYear = (beerList, year) => {
 export const renderNewList = (year, limit) => {
   const lista = JSON.parse(window.sessionStorage.finalList);
   console.log(lista);
-  const finalList = filterByYear(lista, year);
+  let finalList = [];
+  year ? finalList = filterByYear(lista, year): finalList = lista;
+  //const finalList = filterByYear(lista, year);
   const htmlBeerList = createBeersHtml(finalList, limit);
   const htmlInfo = createInfoHtml(finalList, limit);
   renderDOM('info-section', htmlInfo);
@@ -99,17 +104,20 @@ export const renderNewList = (year, limit) => {
 }
 
 
-export const renderBeerList = async (limit, query, year) => {
-    const list = await getBeers(query);
-    var finalList = [];
-    year ? finalList = filterByYear(list, year): finalList = list;
-    const htmlBeerList = createBeersHtml(finalList, limit);
-    const htmlInfo = createInfoHtml(finalList, limit);
-    window.sessionStorage.finalList = JSON.stringify(finalList);
-    renderDOM('info-section', htmlInfo);
-    renderDOM('beer-section', htmlBeerList);
-    createDetailLink('.card-header',config.detailView);
-    createLikelLink('.icon-like',config.detailView);
+export const renderBeerList = async (limit, query) => {
+  const filterField = document.querySelector('#year');
+  const finalList = await getBeers(query);
+  const htmlBeerList = createBeersHtml(finalList, limit);
+  const htmlInfo = createInfoHtml(finalList, limit);
+  window.sessionStorage.finalList = JSON.stringify(finalList);
+  renderDOM('info-section', htmlInfo);
+  renderDOM('beer-section', htmlBeerList);
+  createDetailLink('.card-header',config.detailView);
+  createLikelLink('.icon-like',config.detailView);
+  console.log(filterField.value);
+  if(filterField.value){
+    renderNewList(filterField.value, limit);
+  }
 };
 
 console.log('beers')
