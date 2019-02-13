@@ -10,6 +10,6 @@ const filterField = document.querySelector('#year');
 filterForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const year = filterField.value;
-    //renderNewList();
-    renderBeerList(config.limit, "", year);
+    renderNewList(year, config.limit);
+    //renderBeerList(config.limit, "", year);
 })

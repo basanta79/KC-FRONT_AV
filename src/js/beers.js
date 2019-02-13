@@ -86,17 +86,26 @@ const filterByYear = (beerList, year) => {
 
 }
 
-export const renderNewList = () => {
-  console.log(finaList);
+export const renderNewList = (year, limit) => {
+  const lista = JSON.parse(window.sessionStorage.finalList);
+  console.log(lista);
+  const finalList = filterByYear(lista, year);
+  const htmlBeerList = createBeersHtml(finalList, limit);
+  const htmlInfo = createInfoHtml(finalList, limit);
+  renderDOM('info-section', htmlInfo);
+  renderDOM('beer-section', htmlBeerList);
+  createDetailLink('.card-header',config.detailView);
+  createLikelLink('.icon-like',config.detailView);
 }
 
 
 export const renderBeerList = async (limit, query, year) => {
     const list = await getBeers(query);
-    let finalList = [];
+    var finalList = [];
     year ? finalList = filterByYear(list, year): finalList = list;
     const htmlBeerList = createBeersHtml(finalList, limit);
     const htmlInfo = createInfoHtml(finalList, limit);
+    window.sessionStorage.finalList = JSON.stringify(finalList);
     renderDOM('info-section', htmlInfo);
     renderDOM('beer-section', htmlBeerList);
     createDetailLink('.card-header',config.detailView);
