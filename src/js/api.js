@@ -45,7 +45,7 @@ const apiBeers = (apiURL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.no
         },
         addLike: async(id=1) => {
             try{
-                const requestURL = `${beersList}/${id}/like`
+                const requestURL = `${beersList}/${id}/like`;
 
                 const response = await fetch(requestURL , {
                     method: 'POST',
@@ -59,7 +59,27 @@ const apiBeers = (apiURL = 'https://web-bootcamp-exercise-beer-api-nijliozdcg.no
                 console.log(err);
                 throw `error: ${err}`;
             }
-        }
+        },
+        addComment: async(id=1, commentario) => {
+            try{
+                const requestURL = `${beersList}/${id}/comment`;
+                const response = await fetch(requestURL , {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-KEY': config.apiKey,
+                    },
+                    body: JSON.stringify({
+                        comment: commentario,
+                    }),
+                });
+                const data = await response.json();
+                return data.beer;
+            } catch (err) {
+                console.log(err);
+                throw `error: ${err}`;
+            }
+        },
 
     }
 
