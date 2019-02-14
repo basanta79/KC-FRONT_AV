@@ -50,7 +50,6 @@ export const createLikelLink = (classLabel) => {
   const searchField = document.querySelector('#search-field');
   let filterValue;
   const filterField = document.querySelector('#year');
-  console.log(filterField);
   filterField ? filterValue = filterField.value : filterValue = "";
   headers.forEach( item => {
     const id = item.parentNode.getAttribute('data-id');

@@ -45,6 +45,7 @@ const createLikelLinkDetail = (classLabel) => {
 export const renderBeerDetail = async()=> {
     const [,_id] = window.location.search ? window.location.search.split('=') : [3,1];
     const beer = await getDetail(_id);
+    console.log(beer);
     const beerHtml = beerTemplate(beer);
     renderDOM('beer-detail', beerHtml);
     createLikelLinkDetail('.icon-like');

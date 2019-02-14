@@ -1,4 +1,4 @@
-[ ] - mobile first
+[ ] - mobile first - Responsive
 [X] - Listar las cervezas. limitar resultados a 10
 [X] - Filtrar por texto en header
     [X] - Vista de no hay cervezas para mostrar (con el texto de info es suficiente)
@@ -8,8 +8,8 @@
 [ ] - Vista de detalle incluir un comentario - op -
 [X] - Vista de detalle poder dar like 
 [X] - Vista de listado poder dar like 
-[ ] - Local storage para guardar los filtros. -op-
+[X] - Local storage para guardar los filtros. -op-
 [ ] - Test unitarios con JEST - op -
 [ ] - Deploy en github  o  zeit.co/now - op -
 --------------
-[ ] - spinning wheel for loading state.
+[X] - spinning wheel for loading state. - op -
