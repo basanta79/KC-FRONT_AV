@@ -5,7 +5,7 @@
 [X] - Header con imágen de fondo que sea responsive
 [X] - Filtrar por fecha  ("firstBrewed": "01/2012")
 [X] - Vista de detalle con mas información que en listado
-[ ] - Vista de detalle incluir un comentario - op -
+[X] - Vista de detalle incluir un comentario - op -
 [X] - Vista de detalle poder dar like 
 [X] - Vista de listado poder dar like 
 [X] - Local storage para guardar los filtros. -op-

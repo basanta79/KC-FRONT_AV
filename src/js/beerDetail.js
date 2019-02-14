@@ -5,7 +5,7 @@ import { renderDOM, createLikelLink  } from './beers';
 const { getDetail, addLike, addComment } = apiBeers();
 const config = appConfing();
 
-const beerTemplate = ({beerId, name, image, description, likes, firstBrewed, price, comments, contributedBy, ingredients}) => `
+const beerTemplate = ({beerId, name, image, description, likes, firstBrewed, price, comment, contributedBy, ingredients}) => `
 <div data-id="${beerId}" class="card principal">
   <header class="card-header">
     <h2>${name}</h2>
@@ -22,7 +22,7 @@ const beerTemplate = ({beerId, name, image, description, likes, firstBrewed, pri
           <i class="fas fa-heart"></i> ${likes}
         </button>
         <button class="icon-comment">
-          <i class="fas fa-comments"></i> ${comments.length}
+          <i class="fas fa-comments"></i> ${comment.length}
         </button>
         <p> ${firstBrewed} </p>
       </div>
@@ -49,6 +49,13 @@ const createCommentSubmit = () => {
     ev.preventDefault();
     const result = await addComment(formIdBeer.value,formField.value);
     console.log(result);
+    formField.value="";
+    const beer = await getDetail(formIdBeer.value);
+    console.log(beer);
+    const beerHtml = beerTemplate(beer);
+    renderDOM('beer-detail', beerHtml);
+    createLikelLinkDetail('.icon-like');
+    createCommentSubmit();
   })
 }
 
