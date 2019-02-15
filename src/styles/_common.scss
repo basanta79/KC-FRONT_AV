@@ -7,10 +7,25 @@
     border-radius: 5px;
 
     .card-header{
+        display: flex;
+        justify-content: space-between;
         padding: 1em;
         h2{
             font-size: $header-h2;
             color: $primary-text-color;
+            @include desktop{
+                font-size: $logo-font;
+            }
+        }
+        .card-price{
+            font-size: $icons;
+            background-color: $primary-color;
+            padding: .1em .5em .1em .5em;
+            border-bottom-right-radius: 20%;
+            border-top-left-radius: 20%;
+            @include desktop{
+                font-size: $logo-font;
+            }
         }
     }
 
@@ -38,4 +53,63 @@
     .rating-container{
         padding: 0.5em;
     }
+}
+
+.form-comment{
+    width: 100%;
+    ul{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 1rem 1rem 1rem;
+        width: 1;
+        li{
+            width: 100%;
+        }
+        #comment{
+            box-sizing: border-box;
+            width: 100%;
+            height: 200px;
+        }
+    }
+}
+
+.beer-detail{
+    grid-area: filter;
+    justify-self: center;
+
+    & > div{
+        margin: 20px 0;
+    }
+}
+
+.load-wrapp {
+    grid-area: main;
+    width: 100px;
+    height: 100px;
+    padding: 20px 20px 20px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #d8d8d8;
+}
+
+.load-wrapp p {padding: 0 0 20px;}
+
+
+.line {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #4b9cdb;
+}
+
+.load-3 .line:nth-last-child(1) {animation: loadingC .6s .1s linear infinite;}
+.load-3 .line:nth-last-child(2) {animation: loadingC .6s .2s linear infinite;}
+.load-3 .line:nth-last-child(3) {animation: loadingC .6s .3s linear infinite;}
+
+@keyframes loadingC {
+    0 {transform: translate(0,0);}
+    50% {transform: translate(0,15px);}
+    100% {transform: translate(0,0);}
 }
