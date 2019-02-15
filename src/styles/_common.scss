@@ -13,6 +13,9 @@
         h2{
             font-size: $header-h2;
             color: $primary-text-color;
+            @include desktop{
+                font-size: $logo-font;
+            }
         }
         .card-price{
             font-size: $icons;
@@ -20,6 +23,9 @@
             padding: .1em .5em .1em .5em;
             border-bottom-right-radius: 20%;
             border-top-left-radius: 20%;
+            @include desktop{
+                font-size: $logo-font;
+            }
         }
     }
 

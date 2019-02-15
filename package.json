@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webpack": "./node_modules/.bin/webpack",
-    "start": "./node_modules/.bin/webpack-dev-server",
+    "start": "./node_modules/.bin/webpack-dev-server --open \"C:\\Users\\basanta79\\AppData\\Local\\Firefox Developer Edition\\firefox.exe\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

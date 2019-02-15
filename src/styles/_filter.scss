@@ -11,7 +11,13 @@
 .filter-item{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+		justify-content: space-between;
+		@include desktop {
+			justify-content: left;
+			.button-filter{
+				margin-left: 20px;
+			}
+    }
 }
 
 .tgl {

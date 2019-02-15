@@ -46,18 +46,23 @@
     }
     /* ESTADOS */
     &.no-search{
-        .filter-container,
+        .filter-container{
+            display:none;
+            @include desktop{
+                display: block;
+            }
+        }
         .fa-times-circle{
             display: none;
         }
-        a{
+        /* a{
             font-size: $logo-font + .5rem;
-        }
-        .navbar-logo{
+        } */
+        /* .navbar-logo{
             width: 500px;
             transition: width 1s;
             text-align: center;
-        }
+        } */
     }
     &.search{
         .filter-container,

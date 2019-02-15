@@ -1,10 +1,12 @@
 @import "variables";
+@import "responsive";
 @import "reset";
 @import "navbar";
 @import "info";
 @import "beerlist";
 @import "common";
 @import "filter";
+
 
 *{
   font-family:  'Lato', 'verdana';

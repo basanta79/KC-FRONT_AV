@@ -22,7 +22,7 @@ const beerTemplate = ({beerId, name, image, description, likes, firstBrewed, pri
           <i class="fas fa-heart"></i> ${likes}
         </button>
         <button class="icon-comment">
-          <i class="fas fa-comments"></i> ${comment.length}
+          <i class="fas fa-comments"></i> ${comment ? comment.length : 0}
         </button>
         <p> ${firstBrewed} </p>
       </div>
