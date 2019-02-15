@@ -12,7 +12,7 @@ module.exports = {
     },
     output: {
         filename: '[name].bundle.js',
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, 'docs'),
     },
     module: {
       rules: [
@@ -51,7 +51,7 @@ module.exports = {
       ],
     },    
     plugins: [ 
-      new CleanWebpackPlugin(['dist']),
+      new CleanWebpackPlugin(['docs']),
       new htmlPlugin({
         template: path.join(__dirname, 'src', 'index.html'),
         chunks: ['app'],
