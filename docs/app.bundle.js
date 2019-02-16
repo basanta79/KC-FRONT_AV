@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "24f131089956b34bae91";
+/******/ 	var hotCurrentHash = "5c35e45ebb4f7ccfb7f6";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -4734,6 +4734,28 @@ module.exports = function (css) {
 
 /***/ }),
 
+/***/ "./src/images/cerveza_final_med.png":
+/*!******************************************!*\
+  !*** ./src/images/cerveza_final_med.png ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "images/cerveza_final_med.png";
+
+/***/ }),
+
+/***/ "./src/images/cerveza_final_peq.png":
+/*!******************************************!*\
+  !*** ./src/images/cerveza_final_peq.png ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "images/cerveza_final_peq.png";
+
+/***/ }),
+
 /***/ "./src/js/api.js":
 /*!***********************!*\
   !*** ./src/js/api.js ***!
@@ -5308,6 +5330,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_beers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/beers */ "./src/js/beers.js");
 /* harmony import */ var _js_navbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/navbar */ "./src/js/navbar.js");
 /* harmony import */ var _js_filter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./js/filter */ "./src/js/filter.js");
+/* harmony import */ var _images_cerveza_final_peq_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./images/cerveza_final_peq.png */ "./src/images/cerveza_final_peq.png");
+/* harmony import */ var _images_cerveza_final_peq_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_images_cerveza_final_peq_png__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _images_cerveza_final_med_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./images/cerveza_final_med.png */ "./src/images/cerveza_final_med.png");
+/* harmony import */ var _images_cerveza_final_med_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_images_cerveza_final_med_png__WEBPACK_IMPORTED_MODULE_7__);
+
+
 
 
 
