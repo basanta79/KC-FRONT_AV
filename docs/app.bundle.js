@@ -63,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "5c35e45ebb4f7ccfb7f6";
+/******/ 	var hotCurrentHash = "a3a9811f2aa2081a35e5";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -4756,6 +4756,17 @@ module.exports = __webpack_require__.p + "images/cerveza_final_peq.png";
 
 /***/ }),
 
+/***/ "./src/images/favicon.ico":
+/*!********************************!*\
+  !*** ./src/images/favicon.ico ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "images/favicon.ico";
+
+/***/ }),
+
 /***/ "./src/js/api.js":
 /*!***********************!*\
   !*** ./src/js/api.js ***!
@@ -5334,6 +5345,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _images_cerveza_final_peq_png__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_images_cerveza_final_peq_png__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _images_cerveza_final_med_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./images/cerveza_final_med.png */ "./src/images/cerveza_final_med.png");
 /* harmony import */ var _images_cerveza_final_med_png__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_images_cerveza_final_med_png__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _images_favicon_ico__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./images/favicon.ico */ "./src/images/favicon.ico");
+/* harmony import */ var _images_favicon_ico__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_images_favicon_ico__WEBPACK_IMPORTED_MODULE_8__);
+
 
 
 

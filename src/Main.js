@@ -6,6 +6,7 @@ import './js/navbar';
 import './js/filter';
 import './images/cerveza_final_peq.png';
 import './images/cerveza_final_med.png';
+import './images/favicon.ico';
 
 const config = appConfing();
 renderBeerList(config.limit);
